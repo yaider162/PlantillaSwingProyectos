@@ -29,4 +29,4 @@ Plantilla/
                     └── uptc/
                         └── AppTest.java
 ```
-<hr></hr> Creado por: yaider y contribuidores.
+<hr>Creado por: yaider y contribuidores.
