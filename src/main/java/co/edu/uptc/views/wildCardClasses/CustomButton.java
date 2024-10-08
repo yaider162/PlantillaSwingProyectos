@@ -4,9 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CustomButton extends JButton{
-    private final Color pressedColor = Global.BUTTON_BACKGROUND_COLOR;
-    private final Color rolloverColor = Global.BUTTON_BACKGROUND_COLOR;
-    private final Color normalColor = Global.BUTTON_BACKGROUND_COLOR;
+    public Color pressedColor = Global.BUTTON_BACKGROUND_COLOR;
+    public Color rolloverColor = Global.BUTTON_BACKGROUND_COLOR;
+    public Color normalColor = Global.BUTTON_BACKGROUND_COLOR;
 
     public CustomButton(String text) {
         super(text);

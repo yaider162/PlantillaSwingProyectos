@@ -52,6 +52,16 @@ public class HeaderPanel extends JPanel{
             public void mouseClicked(MouseEvent e) {
                 addByCity();
             }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                label.setForeground(Global.WORK_BACKGROUND_COLOR);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                label.setForeground(Global.HEADER_TEXT_COLOR);
+            }
         });
         headerLabelsPanel.add(label);
     }
@@ -71,7 +81,7 @@ public class HeaderPanel extends JPanel{
     }
     private void createButtonExit(){
         CustomButton button = new CustomButton("Salir");
-        button.addActionListener(e -> System.exit(0));
+        button.addActionListener(e -> System.exit(0));x
         headerLabelsPanel.add(button);
     }
     private void addByCity(){
