@@ -81,7 +81,7 @@ public class HeaderPanel extends JPanel{
     }
     private void createButtonExit(){
         CustomButton button = new CustomButton("Salir");
-        button.addActionListener(e -> System.exit(0));x
+        button.addActionListener(e -> System.exit(0));
         headerLabelsPanel.add(button);
     }
     private void addByCity(){
