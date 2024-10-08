@@ -27,6 +27,7 @@ public class MainPageFrame extends JFrame implements Interfaces.View {
         this.setSize(getMainSize());
         this.setLocationRelativeTo(null);
     }
+
     private Dimension getMainSize(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double width = screenSize.getWidth();
