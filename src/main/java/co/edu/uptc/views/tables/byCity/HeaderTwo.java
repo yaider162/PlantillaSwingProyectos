@@ -55,6 +55,16 @@ public class HeaderTwo extends JPanel {
                 parent.dispose();
                 goToState();
             }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                label.setForeground(Global.WORK_BACKGROUND_COLOR);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                label.setForeground(Global.HEADER_TEXT_COLOR);
+            }
         });
         headerLabelsPanel.add(label);
     }

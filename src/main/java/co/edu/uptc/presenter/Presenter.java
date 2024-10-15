@@ -16,12 +16,12 @@ public class Presenter implements Interfaces.Presenter {
 
     @Override
     public void setModel(Interfaces.Model model) {
-
+        this.model=model;
     }
 
     @Override
     public void setView(Interfaces.View view) {
-
+        this.view=view;
     }
 
     @Override

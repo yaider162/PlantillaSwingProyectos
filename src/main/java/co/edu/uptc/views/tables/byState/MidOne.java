@@ -61,7 +61,7 @@ public class MidOne extends JPanel {
     }
 
     private void setTableData() {
-//        Object[][] vehiclesList = presenter.obtainRootsByDepartmentAndCity();
+//        Object[][] vehiclesList = co.edu.uptc.presenter.obtainRootsByDepartmentAndCity();
 //        for (Object[] datum : vehiclesList) {
 //            tableByDateAppointments.putData(datum);
 //        }

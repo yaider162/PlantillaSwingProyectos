@@ -22,7 +22,7 @@ public class HeaderPanel extends JPanel{
         this.presenter = presenter;
         initComponents();
         createPanelHeaderLabels();
-        createLabelViewDates();
+        createLabel();
         createTitlePanel();
         createLblTitle();
         createButtonExit();
@@ -45,7 +45,7 @@ public class HeaderPanel extends JPanel{
         headerLabelsPanel.setBackground(Global.HEADER_BACKGROUND_COLOR);
         this.add(headerLabelsPanel, BorderLayout.CENTER);
     }
-    private void createLabelViewDates(){
+    private void createLabel(){
         JLabel label =  new LabelHeader("Tablas de datos");
         label.addMouseListener(new MouseAdapter() {
             @Override

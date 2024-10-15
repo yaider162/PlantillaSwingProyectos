@@ -35,7 +35,7 @@ public class MainPageFrame extends JFrame implements Interfaces.View {
         return new Dimension((int)width, (int)height);
     }
     private void createWorkPanel(){
-        JPanel workPanel = new WorkPanel(this, presenter);
+        JPanel workPanel = new MidPanel(this, presenter);
         this.add(workPanel, BorderLayout.CENTER);
     }
     private void createHeaderPanel(){

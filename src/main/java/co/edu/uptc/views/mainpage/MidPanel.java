@@ -7,11 +7,11 @@ import co.edu.uptc.views.wildCardClasses.Global;
 import javax.swing.*;
 import java.awt.*;
 
-public class WorkPanel extends JPanel {
+public class MidPanel extends JPanel {
     private final MainPageFrame mainPageFrame;
     private final Interfaces.Presenter presenter;
 
-    public WorkPanel(MainPageFrame mainPageFrame, Interfaces.Presenter presenterVet){
+    public MidPanel(MainPageFrame mainPageFrame, Interfaces.Presenter presenterVet){
         this.mainPageFrame = mainPageFrame;
         this.presenter = presenterVet;
         initWorkPanel();

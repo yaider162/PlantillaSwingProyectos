@@ -56,6 +56,16 @@ public class HeaderOne extends JPanel {
                 parent.dispose();
                 goToByCity();
             }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                label.setForeground(Global.WORK_BACKGROUND_COLOR);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                label.setForeground(Global.HEADER_TEXT_COLOR);
+            }
         });
         headerLabelsPanel.add(label);
     }
