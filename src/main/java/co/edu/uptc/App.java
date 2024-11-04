@@ -7,6 +7,7 @@ public class App {
     public static void main(String[] args) {
         Presenter presenter = new Presenter();
         MainPageFrame mainPageFrame = new MainPageFrame(presenter);
+        presenter.setView(mainPageFrame);
         mainPageFrame.start();
     }
 }

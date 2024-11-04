@@ -1,6 +1,10 @@
 package co.edu.uptc.views.mainpage;
 
 import co.edu.uptc.interfaces.Interfaces;
+import co.edu.uptc.models.OvnisManager;
+import co.edu.uptc.views.pages.AskFrame;
+import co.edu.uptc.views.pages.InfoReal;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
@@ -16,7 +20,7 @@ public class MainPageFrame extends JFrame implements Interfaces.View {
     public void start() {
         initComponents();
         createHeaderPanel();
-        createWorkPanel();
+        createMidPanel();
         setVisible(true);
     }
 
@@ -29,9 +33,9 @@ public class MainPageFrame extends JFrame implements Interfaces.View {
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 10, 10));
         this.setLocationRelativeTo(null);
     }
-    private void createWorkPanel(){
-        JPanel workPanel = new MidPanel(this, presenter);
-        this.add(workPanel, BorderLayout.CENTER);
+    private void createMidPanel(){
+        JPanel midPanel = new MidPanel(this, presenter);
+        this.add(midPanel, BorderLayout.CENTER);
     }
     private void createHeaderPanel(){
         JPanel headerPanel = new HeaderPanel(this, presenter);
@@ -45,5 +49,11 @@ public class MainPageFrame extends JFrame implements Interfaces.View {
     @Override
     public void setPresenter(Interfaces.Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    public void initGame(OvnisManager ovnisManager) {
+        InfoReal infoReal = new InfoReal(ovnisManager);
+        infoReal.setPresenter(presenter);
+        infoReal.start();
     }
 }

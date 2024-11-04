@@ -18,22 +18,7 @@ public class OvnisManager {
         this.ovnisTime = ovnisTime;
         this.ovnisSpeed = ovnisSpeed;
         this.ovnis = new ArrayList<>();
-        createOvnis();
     }
-
-    private void createOvnis() {
-        for (int i = 0; i < ovnisCount; i++) {
-            Ovni ovni = new Ovni(ovnisSpeed);
-            ovnis.add(ovni);
-            new Thread(ovni).start();
-            try {
-                Thread.sleep(ovnisTime);
-            } catch (InterruptedException e) {
-                System.out.println("Falló xd");
-            }
-        }
-    }
-
     @Override
     public String toString() {
         return "OvnisManager{" +
