@@ -1,14 +1,15 @@
 package co.edu.uptc.views.mainpage;
 
 import co.edu.uptc.interfaces.Interfaces;
-
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.RoundRectangle2D;
 
 public class MainPageFrame extends JFrame implements Interfaces.View {
     private Interfaces.Presenter presenter;
 
-    public MainPageFrame(){
+    public MainPageFrame(Interfaces.Presenter presenter){
+        this.presenter = presenter;
     }
 
     @Override
@@ -20,19 +21,13 @@ public class MainPageFrame extends JFrame implements Interfaces.View {
     }
 
     private void initComponents(){
-        this.setTitle("Vizualizacion de datos de departamentos");
+        this.setTitle("Yaoi's game");
         this.setUndecorated(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
-        this.setSize(getMainSize());
+        this.setSize(800,600);
+        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 10, 10));
         this.setLocationRelativeTo(null);
-    }
-
-    private Dimension getMainSize(){
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        double width = screenSize.getWidth();
-        double height = screenSize.getHeight() * 0.68;
-        return new Dimension((int)width, (int)height);
     }
     private void createWorkPanel(){
         JPanel workPanel = new MidPanel(this, presenter);
@@ -42,8 +37,11 @@ public class MainPageFrame extends JFrame implements Interfaces.View {
         JPanel headerPanel = new HeaderPanel(this, presenter);
         this.add(headerPanel, BorderLayout.NORTH);
     }
-
-
+    public void createAskFrame(){
+        AskFrame askFrame = new AskFrame();
+        askFrame.setPresenter(presenter);
+        askFrame.start();
+    }
     @Override
     public void setPresenter(Interfaces.Presenter presenter) {
         this.presenter = presenter;

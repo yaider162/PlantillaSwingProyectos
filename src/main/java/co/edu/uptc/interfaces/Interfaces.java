@@ -9,9 +9,9 @@ public interface Interfaces {
         void setPresenter(Presenter presenter);
     }
     interface Presenter {
-        Object[] obtainRootsByDepartment();
         void setModel(Model model);
         void setView(View view);
         void start();
+        void ovnisParam(int ovnisCant, int ovnisTime, int ovnisSpeed);
     }
 }
