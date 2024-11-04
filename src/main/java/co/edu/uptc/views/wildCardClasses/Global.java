@@ -5,11 +5,12 @@ import java.io.InputStream;
 
 @SuppressWarnings("CallToPrintStackTrace")
 public class Global {
-    public static Color HEADER_BACKGROUND_COLOR = new Color(67,56,120);
+    public static Color ASK_COLOR_BACKGROUND = (new Color(4, 13, 18));
+    public static Color HEADER_BACKGROUND_COLOR = new Color(4, 13, 18);
     public static Color HEADER_TEXT_COLOR = new Color(255, 255, 255);
-    public static Color WORK_BACKGROUND_COLOR = new Color(228, 177, 240);
+    public static Color WORK_BACKGROUND_COLOR = new Color(24, 61, 61);
     public static Color WORK_TEXT_COLOR = new Color(10,10 ,10 );
-    public static Color BUTTON_BACKGROUND_COLOR = new Color(126, 96, 191);
+    public static Color BUTTON_BACKGROUND_COLOR = new Color(92, 131, 116);
     public static Color BUTTON_TEXT_COLOR = new Color(0xFF, 0xFF, 0xFF);
     public static Font FONT_TEXTS = createCustomFont("/fonts/Archivo-SemiBold.ttf", 20);
     public static Font FONT_TITLE_NORMAL = createCustomFont("/fonts/NewsreaderText-Regular.ttf", 36);

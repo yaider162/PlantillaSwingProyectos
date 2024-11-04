@@ -17,7 +17,7 @@ public class CustomButton extends JButton{
         setForeground(Global.BUTTON_TEXT_COLOR);
         setFont(Global.BUTTON_FONT);
         setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        setMargin(new Insets(10, 50, 10, 50));
+        setMargin(new Insets(10, 25, 10, 25));
     }
 
     @Override
@@ -31,7 +31,7 @@ public class CustomButton extends JButton{
         } else {
             g2.setColor(normalColor);
         }
-        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 50, 50);
+        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 15, 15);
         g2.dispose();
         super.paintComponent(g);
         drawText(g);

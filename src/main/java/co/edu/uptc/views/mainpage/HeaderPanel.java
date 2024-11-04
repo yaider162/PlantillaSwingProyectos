@@ -1,7 +1,6 @@
 package co.edu.uptc.views.mainpage;
 
 import co.edu.uptc.interfaces.Interfaces;
-import co.edu.uptc.views.tables.byCity.MainTwo;
 import co.edu.uptc.views.wildCardClasses.CustomButton;
 import co.edu.uptc.views.wildCardClasses.Global;
 import co.edu.uptc.views.wildCardClasses.LabelHeader;
@@ -22,7 +21,6 @@ public class HeaderPanel extends JPanel{
         this.presenter = presenter;
         initComponents();
         createPanelHeaderLabels();
-        createLabel();
         createTitlePanel();
         createLblTitle();
         createButtonExit();
@@ -45,27 +43,23 @@ public class HeaderPanel extends JPanel{
         headerLabelsPanel.setBackground(Global.HEADER_BACKGROUND_COLOR);
         this.add(headerLabelsPanel, BorderLayout.CENTER);
     }
-    private void createLabel(){
-        JLabel label =  new LabelHeader("Tablas de datos");
-        label.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                addByCity();
-            }
-
+    private void createButtonExit(){
+        CustomButton button = new CustomButton("Salir");
+        button.addActionListener(e -> System.exit(0));
+        button.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                label.setForeground(Global.WORK_BACKGROUND_COLOR);
+                button.rolloverColor = Global.BUTTON_BACKGROUND_COLOR.brighter();
+                button.repaint();
             }
-
             @Override
             public void mouseExited(MouseEvent e) {
-                label.setForeground(Global.HEADER_TEXT_COLOR);
+                button.rolloverColor = Global.BUTTON_BACKGROUND_COLOR;
+                button.repaint();
             }
         });
-        headerLabelsPanel.add(label);
+        headerLabelsPanel.add(button);
     }
-
     private void createTitlePanel(){
         titlePanel = new JPanel();
         titlePanel.setBackground(Global.HEADER_BACKGROUND_COLOR);
@@ -73,19 +67,10 @@ public class HeaderPanel extends JPanel{
         this.add(titlePanel, BorderLayout.WEST);
     }
     private void createLblTitle(){
-        JLabel label = new JLabel("Vizualizacion de datos de departamentos");
+        JLabel label = new JLabel("Yaoi's Game");
         titlePanel.add(Box.createHorizontalStrut(50));
         label.setFont(Global.FONT_TITLE_NORMAL);
         label.setForeground(Global.HEADER_TEXT_COLOR);
         titlePanel.add(label);
-    }
-    private void createButtonExit(){
-        CustomButton button = new CustomButton("Salir");
-        button.addActionListener(e -> System.exit(0));
-        headerLabelsPanel.add(button);
-    }
-    private void addByCity(){
-        MainTwo mainTwo = new MainTwo(mainPageFrame, presenter);
-        mainTwo.setVisible(true);
     }
 }

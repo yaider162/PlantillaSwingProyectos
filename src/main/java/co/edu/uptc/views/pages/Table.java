@@ -1,4 +1,4 @@
-package co.edu.uptc.views.tables;
+package co.edu.uptc.views.pages;
 
 import co.edu.uptc.views.wildCardClasses.Global;
 import lombok.Getter;
