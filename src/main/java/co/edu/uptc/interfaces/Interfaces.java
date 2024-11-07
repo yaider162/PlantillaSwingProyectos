@@ -10,6 +10,7 @@ public interface Interfaces {
     }
     interface Presenter {
         void setModel(Model model);
+        Model getModel();
         void setView(View view);
         void start();
         void ovnisParam(int ovnisCant, int ovnisTime, int ovnisSpeed);

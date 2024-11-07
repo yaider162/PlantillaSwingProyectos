@@ -1,7 +1,6 @@
 package co.edu.uptc.views.mainpage;
 
 import co.edu.uptc.interfaces.Interfaces;
-import co.edu.uptc.models.OvnisManager;
 import co.edu.uptc.views.pages.AskFrame;
 import co.edu.uptc.views.pages.InfoReal;
 
@@ -51,8 +50,8 @@ public class MainPageFrame extends JFrame implements Interfaces.View {
         this.presenter = presenter;
     }
 
-    public void initGame(OvnisManager ovnisManager) {
-        InfoReal infoReal = new InfoReal(ovnisManager);
+    public void initGame() {
+        InfoReal infoReal = new InfoReal();
         infoReal.setPresenter(presenter);
         infoReal.start();
     }

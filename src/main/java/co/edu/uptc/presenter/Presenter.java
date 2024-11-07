@@ -26,7 +26,13 @@ public class Presenter implements Interfaces.Presenter {
     @Override
     public void ovnisParam(int ovnisCant, int ovnisTime, int ovnisSpeed) {
         ovnisManager =  new OvnisManager(ovnisCant, ovnisTime, ovnisSpeed);
-        mainPageFrame.initGame(ovnisManager);
+        setModel(ovnisManager);
+        mainPageFrame.setPresenter(this);
+        mainPageFrame.initGame();
         System.out.println(ovnisManager);
+    }
+    @Override
+    public Interfaces.Model getModel() {
+        return model;
     }
 }
