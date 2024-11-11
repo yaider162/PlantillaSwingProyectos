@@ -3,7 +3,6 @@ package co.edu.uptc.models;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
@@ -15,6 +14,7 @@ public class Ovni{
     private float speedY;
     private static final int SIZE = 10;
     private OvnisManager manager;
+    private Color color;
 
     public Ovni(int speed, OvnisManager manager) {
         Random rand = new Random();
@@ -32,7 +32,7 @@ public class Ovni{
         }
     }
     public void draw(Graphics g) {
-        g.setColor(Color.WHITE);
+        g.setColor(color);
         g.fillRect(x, y, SIZE, SIZE);
     }
     public boolean contains(int x, int y) {

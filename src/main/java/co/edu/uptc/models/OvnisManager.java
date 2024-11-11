@@ -2,33 +2,50 @@ package co.edu.uptc.models;
 
 import co.edu.uptc.interfaces.Interfaces;
 
-import java.awt.Graphics;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.awt.*;
+import java.util.*;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class OvnisManager implements Interfaces.Model {
     private int ovnisCant;
-    private int ovnisTime;
+    private long ovnisTime;
     private int ovnisSpeed;
+    private Color ovniColor;
     private CopyOnWriteArrayList<Ovni> ovnisAlive;
     private CopyOnWriteArrayList<Ovni> ovnisCrashed;
-
-    public OvnisManager(int ovnisCant, int ovnisTime, int ovnisSpeed) {
+    private int count =0;
+    public OvnisManager(int ovnisCant, int ovnisTime, int ovnisSpeed, Color ovniColor) {
         this.ovnisCant = ovnisCant;
-        this.ovnisTime = ovnisTime;
+        this.ovnisTime = (long) ovnisTime;
         this.ovnisSpeed = ovnisSpeed;
+        this.ovniColor = ovniColor;
         initOvnis();
+    }
+
+    public void continueOvnis(Graphics g){
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                if (count < ovnisCant) {
+                    Ovni ovni =new Ovni(ovnisSpeed, OvnisManager.this);
+                    ovni.setColor(ovniColor);
+                    ovnisAlive.add(ovni);
+                    try {
+                        moves(g);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    count++;
+                }
+            }
+        }, 0, ovnisTime);
     }
 
     private void initOvnis() {
         ovnisAlive = new CopyOnWriteArrayList<>();
         ovnisCrashed = new CopyOnWriteArrayList<>();
-        for (int i = 0; i < ovnisCant; i++) {
-            ovnisAlive.add(new Ovni(ovnisSpeed, this));
-        }
     }
 
     public void addCrashed(Ovni ovni) {

@@ -11,12 +11,12 @@ import java.awt.event.MouseEvent;
 
 public class OvnisMovementPanel extends JPanel {
     private OvnisManager ovnisManager;
+    private boolean firstTime=true;
 
     public OvnisMovementPanel(OvnisManager ovnisManager) {
         this.ovnisManager = ovnisManager;
         this.setPreferredSize(new Dimension(800, 600));
         this.setBackground(new Color(4, 13, 18));
-
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -34,11 +34,12 @@ public class OvnisMovementPanel extends JPanel {
             }
         }
     }
-
     @SneakyThrows
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        if (firstTime) ovnisManager.continueOvnis(g);
+        firstTime=false;
         ovnisManager.moves(g);
     }
 }

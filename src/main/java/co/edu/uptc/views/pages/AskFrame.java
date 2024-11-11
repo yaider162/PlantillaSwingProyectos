@@ -2,14 +2,13 @@ package co.edu.uptc.views.pages;
 
 import co.edu.uptc.interfaces.Interfaces;
 import co.edu.uptc.models.NumericDocumentFilter;
-import co.edu.uptc.models.OvnisManager;
 import co.edu.uptc.views.wildCardClasses.CustomButton2;
+import co.edu.uptc.views.wildCardClasses.CustomColorChooser;
 import co.edu.uptc.views.wildCardClasses.CustomTextField;
 import co.edu.uptc.views.wildCardClasses.Global;
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
 import java.awt.*;
-import java.awt.geom.RoundRectangle2D;
 
 public class AskFrame extends JFrame implements Interfaces.View {
     Interfaces.Presenter presenter;
@@ -49,6 +48,7 @@ public class AskFrame extends JFrame implements Interfaces.View {
         JTextField txtVel = createTextField();
         JButton btnA = createAcceptButton(txtTNew, txtVel, txtNumOvnis);
         JButton btnB = createCancelButton();
+
         addComponent(panel, lblNumOvnis, gbc, 0, 0);
         addComponent(panel, txtNumOvnis, gbc, 1, 0);
         addComponent(panel, lblTNew, gbc, 0, 1);
@@ -78,7 +78,8 @@ public class AskFrame extends JFrame implements Interfaces.View {
                 int ovnisCant = Integer.parseInt(txtNumOvnis.getText());
                 int ovnisTime = Integer.parseInt(txtTNew.getText());
                 int ovnisSpeed = Integer.parseInt(txtVel.getText());
-                presenter.ovnisParam(ovnisCant, ovnisTime, ovnisSpeed);
+                Color ovniColor = CustomColorChooser.showDialog(this, "Seleccionar Color de Ovni", Color.WHITE);
+                presenter.ovnisParam(ovnisCant, ovnisTime, ovnisSpeed, ovniColor);
                 this.dispose();
             }
         });

@@ -13,6 +13,6 @@ public interface Interfaces {
         Model getModel();
         void setView(View view);
         void start();
-        void ovnisParam(int ovnisCant, int ovnisTime, int ovnisSpeed);
+        void ovnisParam(int ovnisCant, int ovnisTime, int ovnisSpeed, java.awt.Color ovnisColor);
     }
 }

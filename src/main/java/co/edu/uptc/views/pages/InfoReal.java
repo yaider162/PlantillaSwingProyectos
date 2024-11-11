@@ -25,7 +25,7 @@ public class InfoReal extends JFrame implements Interfaces.View {
     public void start() {
         initComponents();
         setVisible(true);
-        SwingUtilities.invokeLater(this::startUpdating);
+        startUpdating();
     }
 
     public void startUpdating(){
@@ -69,14 +69,7 @@ public class InfoReal extends JFrame implements Interfaces.View {
     }
 
     private void addLoopPanel() {
-        loopPanel = new OvnisMovementPanel(ovnisManager) {
-            @SneakyThrows
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                ovnisManager.moves(g);
-            }
-        };
+        loopPanel = new OvnisMovementPanel(ovnisManager);
         this.add(loopPanel);
     }
 

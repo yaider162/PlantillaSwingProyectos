@@ -3,6 +3,9 @@ package co.edu.uptc.presenter;
 import co.edu.uptc.interfaces.Interfaces;
 import co.edu.uptc.models.OvnisManager;
 import co.edu.uptc.views.mainpage.MainPageFrame;
+import co.edu.uptc.views.pages.ColorAsk;
+
+import java.awt.*;
 
 public class Presenter implements Interfaces.Presenter {
     private Interfaces.Model model;
@@ -24,8 +27,8 @@ public class Presenter implements Interfaces.Presenter {
     public void start() {
     }
     @Override
-    public void ovnisParam(int ovnisCant, int ovnisTime, int ovnisSpeed) {
-        ovnisManager =  new OvnisManager(ovnisCant, ovnisTime, ovnisSpeed);
+    public void ovnisParam(int ovnisCant, int ovnisTime, int ovnisSpeed, Color ovnisColor) {
+        ovnisManager =  new OvnisManager(ovnisCant, ovnisTime, ovnisSpeed, ovnisColor);
         setModel(ovnisManager);
         mainPageFrame.setPresenter(this);
         mainPageFrame.initGame();
