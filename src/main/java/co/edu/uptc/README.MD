@@ -18,6 +18,7 @@ Este proyecto está definido para ejecutarse en **JDK 21**.
    ```sh
    git clone https://github.com/yaider162/PlantillaSwingProyectos
     ```
+   En la rama culebra
 ## Iniciar el Juego:    
 Al iniciar el juego puedes configurar los parámetros:  
 
