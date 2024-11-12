@@ -42,7 +42,7 @@ public class AskFrame extends JFrame implements Interfaces.View {
     private void addComponentsToPanel(JPanel panel, GridBagConstraints gbc) {
         JLabel lblNumOvnis = createLabel("N° Ovnis:");JTextField txtNumOvnis = createTextField();
         JLabel lblTNew = createLabel("T(ms) Aparicion:");JTextField txtTNew = createTextField();
-        JLabel lblVel = createLabel("Velocidad(1-5):");JTextField txtVel = createTextField();
+        JLabel lblVel = createLabel("Velocidad(rec 10-30):");JTextField txtVel = createTextField();
         JButton btnA = createAcceptButton(txtTNew, txtVel, txtNumOvnis);JButton btnB = createCancelButton();
         addComponent(panel, lblNumOvnis, gbc, 0, 0);
         addComponent(panel, txtNumOvnis, gbc, 1, 0);
@@ -74,6 +74,7 @@ public class AskFrame extends JFrame implements Interfaces.View {
                 int ovnisTime = Integer.parseInt(txtTNew.getText());
                 int ovnisSpeed = Integer.parseInt(txtVel.getText());
                 Color ovniColor = CustomColorChooser.showDialog(this, "Seleccionar Color de Ovni", Color.WHITE);
+                JOptionPane.showMessageDialog(this, "Con el click derecho se puede cambiar la trayectoria de los ovnis", "Información", JOptionPane.INFORMATION_MESSAGE);
                 presenter.ovnisParam(ovnisCant, ovnisTime, ovnisSpeed, ovniColor);
                 this.dispose();
             }

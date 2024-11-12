@@ -20,6 +20,8 @@ public class InfoPanel extends JPanel {
     private OvnisManager ovnisManager;
     private Timer timer;
     private OvnisMovementPanel loopPanel;
+    private JLabel ovnisHome;
+    private JCheckBox showTrajectoriesCheckBox;
 
     public InfoPanel(OvnisManager ovnisManager, OvnisMovementPanel loopPanel) {
         this.ovnisManager = ovnisManager;
@@ -52,6 +54,8 @@ public class InfoPanel extends JPanel {
         y1 = createLabel("Y:", Font.PLAIN, 12);
         movingOvnisLabel = createLabel("En movimiento:", Font.PLAIN, 12);
         crashedOvnisLabel = createLabel("Chocados:", Font.PLAIN, 12);
+        ovnisHome = createLabel("En casa:", Font.PLAIN, 12);
+        showTrajectoriesCheckBox = new JCheckBox("Ver trayectorias");
 
         txtVel = createCustomTextField();
         btnA = createButton("Aceptar", new Color(70, 130, 180));
@@ -100,9 +104,10 @@ public class InfoPanel extends JPanel {
         if (ovniTouched != null) {
             title.setText("Ovni Tocado");
             color.setText("Color: " + ovniTouched.getColor().getRed() + " " + ovniTouched.getColor().getGreen() + " " + ovniTouched.getColor().getBlue());
-            speed.setText("Velocidad: " + ovniTouched.getSpeed());
+            speed.setText("Velocidad: " + (int) ovniTouched.getSpeed());
             x1.setText("X: " + ovniTouched.getX());
             y1.setText("Y: " + ovniTouched.getY());
+            ovnisHome.setText("En casa: " + ovnisManager.getOvnisOnHome().size());
         } else {
             resetLabels();
         }
@@ -131,6 +136,7 @@ public class InfoPanel extends JPanel {
     private void addListeners() {
         btnB.addActionListener(e -> closeWindow());
         btnA.addActionListener(e -> changeOvniSpeed());
+        showTrajectoriesCheckBox.addActionListener(e -> ovnisManager.setShowTrajectories(showTrajectoriesCheckBox.isSelected()));
     }
 
     private void closeWindow() {
@@ -154,8 +160,10 @@ public class InfoPanel extends JPanel {
         addComponent(y1, 0, 4);
         addComponent(movingOvnisLabel, 0, 5);
         addComponent(crashedOvnisLabel, 0, 6);
-        addComponent(txtVel, 0, 7);
-        addComponent(btnA, 0, 8);
-        addComponent(btnB, 0, 9);
+        addComponent(ovnisHome, 0, 7);
+        addComponent(txtVel, 0, 8);
+        addComponent(showTrajectoriesCheckBox, 0, 9);
+        addComponent(btnA, 0, 10);
+        addComponent(btnB, 0, 11);
     }
 }
