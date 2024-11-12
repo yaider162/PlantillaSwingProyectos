@@ -3,10 +3,10 @@ package co.edu.uptc.presenter;
 import co.edu.uptc.interfaces.Interfaces;
 import co.edu.uptc.models.OvnisManager;
 import co.edu.uptc.views.mainpage.MainPageFrame;
-import co.edu.uptc.views.pages.ColorAsk;
+import lombok.Getter;
 
 import java.awt.*;
-
+@Getter
 public class Presenter implements Interfaces.Presenter {
     private Interfaces.Model model;
     private Interfaces.View view;

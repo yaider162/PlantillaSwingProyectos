@@ -15,14 +15,15 @@ public class Ovni{
     private static final int SIZE = 10;
     private OvnisManager manager;
     private Color color;
+    private static final float SPEED_SCALE = 0.5f;
 
     public Ovni(int speed, OvnisManager manager) {
         Random rand = new Random();
-        if(rand.nextBoolean()) this.speed = -speed;else{this.speed = speed;}
-        if(rand.nextBoolean()) this.speedY = -speed;else{this.speedY = speed;}
+        this.speed = (rand.nextBoolean() ? -1 : 1) * speed * SPEED_SCALE;
+        this.speedY = (rand.nextBoolean() ? -1 : 1) * speed * SPEED_SCALE;
         this.manager = manager;
-        this.x = rand.nextInt(800);
-        this.y = rand.nextInt(600);
+        this.x = rand.nextInt(700);
+        this.y = rand.nextInt(500);
     }
     public void move() {
         x += (int) (speed);

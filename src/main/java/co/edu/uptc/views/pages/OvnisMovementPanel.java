@@ -2,38 +2,37 @@ package co.edu.uptc.views.pages;
 
 import co.edu.uptc.models.Ovni;
 import co.edu.uptc.models.OvnisManager;
+import lombok.Getter;
 import lombok.SneakyThrows;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
+@Getter
 public class OvnisMovementPanel extends JPanel {
     private OvnisManager ovnisManager;
     private boolean firstTime=true;
+    private Ovni ovniToucheded;
 
     public OvnisMovementPanel(OvnisManager ovnisManager) {
         this.ovnisManager = ovnisManager;
         this.setPreferredSize(new Dimension(800, 600));
         this.setBackground(new Color(4, 13, 18));
-        addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                handleClick(e.getX(), e.getY());
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ovniToucheded = getOvniTouched(evt.getX(), evt.getY());
             }
         });
     }
 
-    private void handleClick(int x, int y) {
+    public Ovni getOvniTouched(int x, int y) {
         for (Ovni ovni : ovnisManager.getOvnisAlive()) {
             if (ovni.contains(x, y)) {
-                System.out.println("Ovni +" +
-                        "clicked at: " + x + ", " + y);
-                break;
+                return ovni;
             }
         }
+        return null;
     }
+
     @SneakyThrows
     @Override
     protected void paintComponent(Graphics g) {

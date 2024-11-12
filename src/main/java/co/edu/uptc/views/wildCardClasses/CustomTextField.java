@@ -10,6 +10,9 @@ public class CustomTextField extends JTextField {
         this.setForeground(Color.WHITE);
         this.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(240, 240, 240)));
         this.setCaret(new CustomCaret(Color.WHITE));
-
+        this.setHorizontalAlignment(JTextField.CENTER);
+    }
+    public void setBorderColor(Color color) {
+        this.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, color));
     }
 }

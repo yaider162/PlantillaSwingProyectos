@@ -1,24 +1,31 @@
 package co.edu.uptc.views.pages;
 
 import co.edu.uptc.interfaces.Interfaces;
+import co.edu.uptc.models.Ovni;
 import co.edu.uptc.models.OvnisManager;
-import lombok.SneakyThrows;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.swing.*;
-import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.util.Timer;
 import java.util.TimerTask;
 
+@Getter
+@Setter
 public class InfoReal extends JFrame implements Interfaces.View {
     private Interfaces.Presenter presenter;
     private OvnisManager ovnisManager;
-    private JLabel globalParamsLabel;
-    private JLabel movingOvnisLabel;
-    private JLabel crashedOvnisLabel;
-    private JPanel loopPanel;
+    private OvnisMovementPanel loopPanel;
+    private Ovni ovniTouched;
+    private InfoPanel infoPanel;
 
-    public InfoReal() {
+    public InfoReal(OvnisManager ovnisManager) {
+        this.ovnisManager = ovnisManager;
+        loopPanel = new OvnisMovementPanel(ovnisManager);
+        infoPanel = new InfoPanel(ovnisManager,loopPanel);
     }
 
     @Override
@@ -33,8 +40,6 @@ public class InfoReal extends JFrame implements Interfaces.View {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                movingOvnisLabel.setText("Ovnis en movimiento: " + ovnisManager.getMovingOvnisCount());
-                crashedOvnisLabel.setText("Ovnis chocados: " + ovnisManager.getCrashedOvnisCount());
                 loopPanel.repaint();
             }
         }, 0, 100);
@@ -52,24 +57,9 @@ public class InfoReal extends JFrame implements Interfaces.View {
         addLoopPanel();
     }
     private void addInfoPanel() {
-        JPanel infoPanel = new JPanel();
-        infoPanel.setPreferredSize(new Dimension(200, 600));
-        infoPanel.setBackground(new Color(255, 255, 255));
-        infoPanel.setLayout(new BoxLayout(infoPanel, BoxLayout.Y_AXIS));
-
-        globalParamsLabel = new JLabel();
-        movingOvnisLabel = new JLabel();
-        crashedOvnisLabel = new JLabel();
-
-        infoPanel.add(globalParamsLabel);
-        infoPanel.add(movingOvnisLabel);
-        infoPanel.add(crashedOvnisLabel);
-
         this.add(infoPanel);
     }
-
     private void addLoopPanel() {
-        loopPanel = new OvnisMovementPanel(ovnisManager);
         this.add(loopPanel);
     }
 

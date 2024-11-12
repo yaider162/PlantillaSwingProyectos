@@ -71,4 +71,5 @@ public class OvnisManager implements Interfaces.Model {
     public Ovni[] getOvnisAlive() {
         return ovnisAlive.toArray(new Ovni[0]);
     }
+
 }

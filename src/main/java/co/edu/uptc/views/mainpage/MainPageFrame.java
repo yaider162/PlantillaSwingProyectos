@@ -51,7 +51,7 @@ public class MainPageFrame extends JFrame implements Interfaces.View {
     }
 
     public void initGame() {
-        InfoReal infoReal = new InfoReal();
+        InfoReal infoReal = new InfoReal(presenter.getOvnisManager());
         infoReal.setPresenter(presenter);
         infoReal.start();
     }

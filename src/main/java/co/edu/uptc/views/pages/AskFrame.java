@@ -40,15 +40,10 @@ public class AskFrame extends JFrame implements Interfaces.View {
         return gbc;
     }
     private void addComponentsToPanel(JPanel panel, GridBagConstraints gbc) {
-        JLabel lblNumOvnis = createLabel("N° Ovnis:");
-        JTextField txtNumOvnis = createTextField();
-        JLabel lblTNew = createLabel("T(ms) Aparicion:");
-        JTextField txtTNew = createTextField();
-        JLabel lblVel = createLabel("Velocidad:");
-        JTextField txtVel = createTextField();
-        JButton btnA = createAcceptButton(txtTNew, txtVel, txtNumOvnis);
-        JButton btnB = createCancelButton();
-
+        JLabel lblNumOvnis = createLabel("N° Ovnis:");JTextField txtNumOvnis = createTextField();
+        JLabel lblTNew = createLabel("T(ms) Aparicion:");JTextField txtTNew = createTextField();
+        JLabel lblVel = createLabel("Velocidad(1-5):");JTextField txtVel = createTextField();
+        JButton btnA = createAcceptButton(txtTNew, txtVel, txtNumOvnis);JButton btnB = createCancelButton();
         addComponent(panel, lblNumOvnis, gbc, 0, 0);
         addComponent(panel, txtNumOvnis, gbc, 1, 0);
         addComponent(panel, lblTNew, gbc, 0, 1);
