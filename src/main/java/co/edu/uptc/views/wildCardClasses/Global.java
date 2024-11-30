@@ -15,7 +15,6 @@ public class Global {
     public static Font FONT_TEXTS = createCustomFont("/fonts/Archivo-SemiBold.ttf", 20);
     public static Font FONT_TITLE_NORMAL = createCustomFont("/fonts/NewsreaderText-Regular.ttf", 36);
     public static Font BUTTON_FONT = createCustomFont("/fonts/Archivo-SemiBold.ttf", 20);
-    public static Font FONT_TITLE_BIG = createCustomFont("/fonts/NewsreaderText-Regular.ttf", 84);
     public static Font FONT_TEXTS_SMALL = createCustomFont("/fonts/Archivo-SemiBold.ttf", 12);
     public static Font FONT_TEXTS_NORMAL = createCustomFont("/fonts/NewsreaderText-Regular.ttf", 12);
     private static Font createCustomFont(String path, float size) {

@@ -7,8 +7,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.swing.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.util.Timer;
 import java.util.TimerTask;

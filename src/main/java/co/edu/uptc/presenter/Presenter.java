@@ -23,9 +23,7 @@ public class Presenter implements Interfaces.Presenter {
             mainPageFrame = (MainPageFrame) view;
         }
     }
-    @Override
-    public void start() {
-    }
+
     @Override
     public void ovnisParam(int ovnisCant, int ovnisTime, int ovnisSpeed, Color ovnisColor) {
         ovnisManager =  new OvnisManager(ovnisCant, ovnisTime, ovnisSpeed, ovnisColor);

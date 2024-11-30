@@ -14,7 +14,6 @@ public interface Interfaces {
         void setModel(Model model);
         Model getModel();
         void setView(View view);
-        void start();
         void ovnisParam(int ovnisCant, int ovnisTime, int ovnisSpeed, java.awt.Color ovnisColor);
 
         OvnisManager getOvnisManager();

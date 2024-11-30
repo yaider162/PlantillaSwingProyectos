@@ -3,7 +3,6 @@ package co.edu.uptc.views.mainpage;
 import co.edu.uptc.interfaces.Interfaces;
 import co.edu.uptc.views.wildCardClasses.CustomButton;
 import co.edu.uptc.views.wildCardClasses.Global;
-import co.edu.uptc.views.wildCardClasses.LabelHeader;
 
 import javax.swing.*;
 import java.awt.*;

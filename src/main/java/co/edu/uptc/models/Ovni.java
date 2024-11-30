@@ -34,7 +34,6 @@ public class Ovni{
         if(followingMouse){
             speed=initialSpeed*SPEED_SCALE;
             speedY=initialSpeed*SPEED_SCALE;
-//            System.out.println(followingMouse+" "+targetX+" "+targetY);
             double angle = Math.atan2(targetY - y, targetX - x);
             x += (int) (speed * Math.cos(angle));
             y += (int) (speedY * Math.sin(angle));
